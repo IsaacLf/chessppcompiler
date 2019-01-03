@@ -1,0 +1,62 @@
+Public Round Cibercafe
+    
+    Int PersonasEnCiber = 8;
+    Int Hora = 15;
+    String abc = "Hola Mundo";
+    Char str = 'A';
+    Double float = 0.5;
+
+    Public Move HayDisponible(): Boolean
+        Begin: Bishop (PersonasEnCiber < 10)
+            Return True;
+        Else
+            Return False;
+        Check
+    End: Move
+
+    Public Move HorarioDisponible(): Boolean
+        Begin: Bishop (Hora >= 12 && Hora <= 20)
+            Return True;
+        Else
+            Hora = 20;
+            Return False;
+        Check
+    End: Move
+
+    Public Move ErrorEnMetodo(): Int
+        Return 15.5;
+    End: Move
+
+    Public Move LlegaPersona(Int: A, Int: B): Void
+        PersonasEnCiber += 1;
+    End: Move
+
+    Public Move SubeHorario(): Void
+        !!Hora += 1;
+        Hora++;
+    End: Move
+
+    Public Move Prueba(Int: A, Int: B): Int
+        Return A + B;
+    End: Move
+    ¡¿ Esto
+            es
+                un
+                    comentario 
+                                en
+                                    linea ?!
+    Begin: Main() !!Metodo principal
+        Boolean persona = True;
+        Boolean hora = True;
+        Cibercafe cc = New Cibercafe();
+        Begin: King(cc.HorarioDisponible() && cc.HayDisponible())
+            Begin: Pawn( persona )
+                cc.LlegaPersona();
+            Tie
+            Begin: Pawn( hora )
+                cc.SubeHorario();
+            Tie
+        Check
+    Checkmate
+    
+End: Round
