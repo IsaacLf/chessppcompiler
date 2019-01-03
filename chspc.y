@@ -98,11 +98,19 @@ access_mod: /* Nothing */{ $<attr.scope>$ = "Public"; }
             | ACCESS_MOD { $<attr.scope>$ = $<attr.scope>1; }
             { /*printf("Access Mod: %s\n", $<attr.scope>$); */}
         ;
-body:       access_mod def_vars body 
-        |   def_methods body
-        |   def_main
-        |
+body:       translation_unit
         ;
+translation_unit:     external_declaration
+	                | translation_unit external_declaration
+                	;
+external_declaration: function_definition
+	                | declaration
+	                ;
+function_definition:  declaration_specifiers declarator declaration_list compound_statement
+	                | declaration_specifiers declarator compound_statement
+	                | declarator declaration_list compound_statement
+	                | declarator compound_statement
+	;
 def_main: BEGIN_ ':' MAIN '(' params ')' m_body CHECKMATE
         ;
 params:     /*Nothing*/
